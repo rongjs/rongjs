@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>ECharts</title>
+</head>
+
+<body>
+	<div>标签式文件引入</div>
+
+	<div id="main" style="height:400px">图表加载中。。。</div>
+	<script type="text/javascript" src="http://echarts.baidu.com/build/echarts-plain.js"></script>
+	<script type="text/javascript">
+
+		var myChart = echarts.init(document.getElementById('main'));
+		
+				var option = {
+					tooltip : {
+						show : true
+					}
+					,legend : {
+						data : ['销量分布']
+					}
+					,xAxis : [
+						{
+							type : 'category',
+							data : ["a","b","c"]
+						}
+					]
+					,yAxis : [
+						{
+							type : 'value'
+						}
+					]
+					,series : [
+						{
+							"name" : "销量",
+							"type" : "bar",
+							"data" : [5 ,20 ,40]
+						}
+					]
+				};
+
+		myChart.setOption(option);
+	</script>
+</body>

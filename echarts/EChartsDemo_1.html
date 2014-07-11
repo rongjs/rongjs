@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>ECharts</title>
+	<script type="text/javascript" src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
+</head>
+
+<body>
+	<div>模块化文件引入</div>
+
+	<div id="main" style="height:400px">图表加载中。。。</div>
+	<script type="text/javascript">
+		require.config({
+			paths:{
+				'echarts' : 'http://echarts.baidu.com/build/echarts',
+				'echarts/chart/bar' : 'http://echarts.baidu.com/build/echarts'
+			}
+		});
+
+		require(
+			['echarts','echarts/chart/bar'],
+			function(ec){
+				var myChart = ec.init(document.getElementById('main'));
+
+				var option = {
+					tooltip : {
+						show : true
+					}
+					,legend : {
+						data : ['销量分布']
+					}
+					,xAxis : [
+						{
+							type : 'category',
+							data : ["a","b","c"]
+						}
+					]
+					,yAxis : [
+						{
+							type : 'value'
+						}
+					]
+					,series : [
+						{
+							"name" : "销量",
+							"type" : "bar",
+							"data" : [5 ,20 ,40]
+						}
+					]
+				};
+
+				myChart.setOption(option);
+			}
+		);
+	</script>
+</body>
